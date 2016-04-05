@@ -31,7 +31,7 @@ history.undo() // undefined
         * [~History](#module_Histable..History)
             * [.canUndo](#module_Histable..History+canUndo) ⇒ <code>boolean</code>
             * [.canRedo](#module_Histable..History+canRedo) ⇒ <code>boolean</code>
-            * [.push(value)](#module_Histable..History+push) ⇒ <code>this</code>
+            * [.push(...value)](#module_Histable..History+push) ⇒ <code>this</code>
             * [.redo()](#module_Histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
             * [.undo()](#module_Histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
             * [.log()](#module_Histable..History+log)
@@ -57,7 +57,7 @@ Creates a new History
 * [~History](#module_Histable..History)
     * [.canUndo](#module_Histable..History+canUndo) ⇒ <code>boolean</code>
     * [.canRedo](#module_Histable..History+canRedo) ⇒ <code>boolean</code>
-    * [.push(value)](#module_Histable..History+push) ⇒ <code>this</code>
+    * [.push(...value)](#module_Histable..History+push) ⇒ <code>this</code>
     * [.redo()](#module_Histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
     * [.undo()](#module_Histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
     * [.log()](#module_Histable..History+log)
@@ -76,7 +76,7 @@ Determines if redo() is possible or not
 **Kind**: instance property of <code>[History](#module_Histable..History)</code>  
 <a name="module_Histable..History+push"></a>
 
-#### history.push(value) ⇒ <code>this</code>
+#### history.push(...value) ⇒ <code>this</code>
 Adds the `value` to the history data structure.
 Addition only happens if the new value is not the same as the last one.
 
@@ -84,7 +84,7 @@ Addition only happens if the new value is not the same as the last one.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| value | <code>[Immutable](#external_Immutable)</code> | the [Immutable](https://facebook.github.io/immutable-js/) that needs to be saved |
+| ...value | <code>[Immutable](#external_Immutable)</code> | the [Immutable](https://facebook.github.io/immutable-js/) that needs to be saved. |
 
 <a name="module_Histable..History+redo"></a>
 

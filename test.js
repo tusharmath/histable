@@ -11,6 +11,12 @@ test('push()', t => {
   t.is(h.push(1), h)
 })
 
+test('push():args', t => {
+  const h = create(199)
+  h.push(1, 2, 3, 4)
+  t.same(h.undo(), 3)
+})
+
 test('undo()', t => {
   const h = create(100)
   h.push(1)

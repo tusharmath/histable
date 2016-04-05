@@ -31,6 +31,7 @@
  * @module Histable
  */
 const getLast = list => list[list.length - 1]
+const toArray = (x, i) => Array.prototype.slice.call(x, i)
 
 /**
  * Creates a new History
@@ -46,20 +47,23 @@ class History {
   /**
    * Adds the `value` to the history data structure.
    * Addition only happens if the new value is not the same as the last one.
-   * @param {external:Immutable} value - the {@link https://facebook.github.io/immutable-js/ Immutable} that needs to be saved
+   * @param {...external:Immutable} value - the {@link https://facebook.github.io/immutable-js/ Immutable} that needs to be saved.
    * @returns {this}
    */
-  push (value) {
-    const isDefined = value !== undefined
-    const last = getLast(this.UNDO_HISTORY)
-    const isDiff = last !== value
-    if ([isDefined, isDiff].every(Boolean)) {
-      this.UNDO_HISTORY.push(value)
-    }
-    if (this.UNDO_HISTORY.length > this.limit) {
-      this.UNDO_HISTORY.shift()
-    }
-    this.REDO_HISTORY = []
+  push () {
+    const values = toArray(arguments)
+    values.forEach(value => {
+      const isDefined = value !== undefined
+      const last = getLast(this.UNDO_HISTORY)
+      const isDiff = last !== value
+      if ([isDefined, isDiff].every(Boolean)) {
+        this.UNDO_HISTORY.push(value)
+      }
+      if (this.UNDO_HISTORY.length > this.limit) {
+        this.UNDO_HISTORY.shift()
+      }
+      this.REDO_HISTORY = []
+    })
     return this
   }
 
