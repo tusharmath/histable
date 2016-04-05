@@ -14,15 +14,15 @@ test('push()', t => {
 test('push():args', t => {
   const h = create(199)
   h.push(1, 2, 3, 4)
-  t.same(h.undo(), 3)
+  t.is(h.undo(), 3)
 })
 
 test('undo()', t => {
   const h = create(100)
   h.push(1)
   h.push(2)
-  t.same(h.undo(), 1)
-  t.same(h.undo(), void 0)
+  t.is(h.undo(), 1)
+  t.is(h.undo(), void 0)
 })
 
 test('canRedo', t => {
@@ -37,59 +37,28 @@ test('canRedo', t => {
   t.false(h.canRedo)
 })
 
-test.skip('redo()', t => {
+test('canUndo', t => {
   const h = create(100)
-
   t.false(h.canUndo)
-  t.false(h.canRedo)
-  h.push(1) // [1]
 
+  h.push(1)
   t.false(h.canUndo)
-  t.false(h.canRedo)
-  h.push(2) // [1, 2]
 
-  h.push(3) // [1, 2, 3]
-
+  h.push(2)
   t.true(h.canUndo)
-  t.false(h.canRedo)
-
-  t.same(h.undo(), 2) // [1, 2*, 3]
-
+  h.undo()
+  h.redo()
   t.true(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.redo(), 3) // [1, 2, 3*]
+})
 
-  t.true(h.canUndo)
-  t.false(h.canRedo)
-  t.same(h.redo(), void 0) // [1, 2, 3*]
-
-  t.true(h.canUndo)
-  t.false(h.canRedo)
-  t.same(h.undo(), 2) // [1, 2*, 3]
-
-  t.true(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.undo(), 1) // [1*, 2, 3]
-
-  t.false(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.undo(), void 0) // [1*, 2, 3]
-
-  t.false(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.redo(), 1)
-
-  t.false(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.redo(), 2)
-
-  t.true(h.canUndo)
-  t.true(h.canRedo)
-  t.same(h.redo(), 3)
-
-  t.true(h.canUndo)
-  t.false(h.canRedo)
-  t.same(h.redo(), void 0)
+test('redo()', t => {
+  const h = create(100).push(1, 2, 3)
+  t.is(h.redo(), void 0)
+  h.undo() // 2
+  t.is(h.redo(), 3)
+  h.undo() // 2
+  t.is(h.redo(), 3)
+  t.is(h.redo(), void 0)
 })
 
 test('limit', t => {
@@ -98,18 +67,19 @@ test('limit', t => {
   h.push(2)
   h.push(3)
   h.push(4)
-  t.same(h.undo(), 3)
-  t.same(h.undo(), void 0)
+  t.is(h.undo(), 3)
+  t.is(h.undo(), 2)
+  t.is(h.undo(), void 0)
 })
 
-test('reset REDO', t => {
+test('push+redo', t => {
   const h = create(5)
   h.push(1)
   h.push(2)
-  t.same(h.undo(), 1)
+  h.undo()
   h.push(3)
   t.false(h.canRedo)
-  t.same(h.redo(), void 0)
+  t.is(h.redo(), void 0)
 })
 
 test('distinct pushes', t => {
@@ -117,6 +87,27 @@ test('distinct pushes', t => {
   h.push(1)
   h.push(2)
   h.push(2)
-  t.same(h.undo(), 1)
-  t.same(h.undo(), void 0)
+  t.is(h.undo(), 1)
+  t.is(h.undo(), void 0)
+})
+
+test('redo+undo', t => {
+  const h = create(199).push(
+    'a',
+    'ab',
+    'abc',
+    'abcd',
+    'abcde'
+  )
+  t.is(h.undo(), 'abcd')
+  t.is(h.undo(), 'abc')
+  t.is(h.undo(), 'ab')
+  t.is(h.undo(), 'a')
+  t.is(h.undo(), void 0)
+  t.is(h.redo(), 'a')
+  t.is(h.redo(), 'ab')
+  t.is(h.redo(), 'abc')
+  t.is(h.redo(), 'abcd')
+  t.is(h.redo(), 'abcde')
+  t.is(h.redo(), void 0)
 })
