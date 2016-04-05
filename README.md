@@ -15,13 +15,13 @@
 
 A no external dependency module that maintains the history of state changes.
 
-## Installation
+### Installation
 
 ```bash
 npm i histable --save
 ```
 
-## Usage
+### Usage
 
 ```javascript
 const histable = require('histable')
@@ -34,4 +34,4 @@ history.undo() // 1
 history.undo() // undefined
 ```
 
-## [API DOCUMENTATION](DOCUMENTATION.md)
+### [API DOCUMENTATION](DOCUMENTATION.md)
