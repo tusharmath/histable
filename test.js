@@ -25,7 +25,19 @@ test('undo()', t => {
   t.same(h.undo(), void 0)
 })
 
-test('redo()', t => {
+test('canRedo', t => {
+  const h = create(100)
+  t.false(h.canRedo)
+
+  h.push(1)
+  t.false(h.canRedo)
+
+  h.undo()
+  h.push(2)
+  t.false(h.canRedo)
+})
+
+test.skip('redo()', t => {
   const h = create(100)
 
   t.false(h.canUndo)
