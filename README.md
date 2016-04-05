@@ -12,7 +12,6 @@
 [coveralls]: https://coveralls.io/github/tusharmath/histable?branch=master
 [coveralls-svg]: https://coveralls.io/repos/github/tusharmath/histable/badge.svg?branch=master
 
-
 A no external dependency module that maintains the history of state changes.
 
 ### Installation
@@ -35,3 +34,8 @@ history.undo() // undefined
 ```
 
 ### [API DOCUMENTATION](DOCUMENTATION.md)
+
+---
+Why this name?
+
+**History + Immutable = Histable** — so couldn't think of anything better.
