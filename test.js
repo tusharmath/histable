@@ -6,6 +6,11 @@
 import {create} from './index'
 import test from 'ava'
 
+test('push()', t => {
+  const h = create(199)
+  t.is(h.push(1), h)
+})
+
 test('undo()', t => {
   const h = create(100)
   h.push(1)
