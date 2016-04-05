@@ -78,3 +78,13 @@ test('limit', t => {
   t.same(h.undo(), 3)
   t.same(h.undo(), void 0)
 })
+
+test('reset REDO', t => {
+  const h = history(5)
+  h.push(1)
+  h.push(2)
+  t.same(h.undo(), 1)
+  h.push(3)
+  t.false(h.canRedo)
+  t.same(h.redo(), void 0)
+})

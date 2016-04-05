@@ -43,6 +43,7 @@ class History {
     if (this.UNDO_HISTORY.length > this.limit) {
       this.UNDO_HISTORY.shift()
     }
+    this.REDO_HISTORY = []
   }
 
   /**
