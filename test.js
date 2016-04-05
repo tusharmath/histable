@@ -88,3 +88,12 @@ test('reset REDO', t => {
   t.false(h.canRedo)
   t.same(h.redo(), void 0)
 })
+
+test('distinct pushes', t => {
+  const h = history(5)
+  h.push(1)
+  h.push(2)
+  h.push(2)
+  t.same(h.undo(), 1)
+  t.same(h.undo(), void 0)
+})

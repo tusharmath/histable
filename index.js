@@ -35,7 +35,7 @@ class History {
    */
   push (value) {
     const isDefined = value !== undefined
-    const last = getLast(this.REDO_HISTORY)
+    const last = getLast(this.UNDO_HISTORY)
     const isDiff = last !== value
     if ([isDefined, isDiff].every(Boolean)) {
       this.UNDO_HISTORY.push(value)
