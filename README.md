@@ -24,7 +24,7 @@ npm i histable --save
 
 ```javascript
 const histable = require('histable')
-const history = histable.history()
+const history = histable.create()
 history.push(1)
 history.push(2)
 history.push(3)

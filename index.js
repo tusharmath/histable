@@ -16,13 +16,27 @@
  * @see {@link https://facebook.github.io/immutable-js}
  */
 
+/**
+ * @example
+ * ```javascript
+ * const histable = require('histable')
+ * const history = histable.create()
+ * history.push(1)
+ * history.push(2)
+ * history.push(3)
+ * history.undo() // 2
+ * history.undo() // 1
+ * history.undo() // undefined
+ * ```
+ * @module Histable
+ */
 const getLast = list => list[list.length - 1]
 
 /**
  * Creates a new History
  * @class
  */
-class History {
+exports.History = class History {
   constructor (limit) {
     this.UNDO_HISTORY = []
     this.REDO_HISTORY = []
