@@ -5,6 +5,10 @@
 <dd></dd>
 </dl>
 
+## External
+
+* [Immutable](#external_Immutable)
+
 <a name="module_Histable"></a>
 
 ## Histable
