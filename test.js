@@ -7,7 +7,7 @@ import {history} from './index'
 import test from 'ava'
 
 test('undo()', t => {
-  const h = history()
+  const h = history(100)
   h.push(1)
   h.push(2)
   t.same(h.undo(), 1)
@@ -15,7 +15,7 @@ test('undo()', t => {
 })
 
 test('redo()', t => {
-  const h = history()
+  const h = history(100)
 
   t.false(h.canUndo)
   t.false(h.canRedo)
@@ -67,4 +67,14 @@ test('redo()', t => {
   t.true(h.canUndo)
   t.false(h.canRedo)
   t.same(h.redo(), void 0)
+})
+
+test('limit', t => {
+  const h = history(2)
+  h.push(1)
+  h.push(2)
+  h.push(3)
+  h.push(4)
+  t.same(h.undo(), 3)
+  t.same(h.undo(), void 0)
 })

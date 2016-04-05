@@ -23,9 +23,10 @@ const getLast = list => list[list.length - 1]
  * @class
  */
 class History {
-  constructor () {
+  constructor (limit) {
     this.UNDO_HISTORY = []
     this.REDO_HISTORY = []
+    this.limit = limit > 0 ? limit : 0
   }
 
   /**
@@ -38,6 +39,9 @@ class History {
     const isDiff = last !== value
     if ([isDefined, isDiff].every(Boolean)) {
       this.UNDO_HISTORY.push(value)
+    }
+    if (this.UNDO_HISTORY.length > this.limit) {
+      this.UNDO_HISTORY.shift()
     }
   }
 
