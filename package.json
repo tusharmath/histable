@@ -1,0 +1,28 @@
+{
+  "name": "histable",
+  "version": "0.0.0",
+  "description": "Maintains history of state changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Tushar Mathur <tusharmath@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "cz-conventional-changelog": "^1.1.5"
+  },
+  "keywords": [
+    "history",
+    "immutable",
+    "forward",
+    "backward",
+    "redo",
+    "undo"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
