@@ -36,7 +36,7 @@ const getLast = list => list[list.length - 1]
  * Creates a new History
  * @class
  */
-exports.History = class History {
+class History {
   constructor (limit) {
     this.UNDO_HISTORY = []
     this.REDO_HISTORY = []
