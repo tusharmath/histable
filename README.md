@@ -9,8 +9,8 @@
 [travis]: https://travis-ci.org/tusharmath/histable
 [npm-svg]: https://img.shields.io/npm/v/histable.svg
 [npm]: https://www.npmjs.com/package/histable
-[coveralls]: https://coveralls.io/github/tusharmath/histable?branch=develop
-[coveralls-svg]: https://coveralls.io/repos/github/tusharmath/histable/badge.svg?branch=develop
+[coveralls]: https://coveralls.io/github/tusharmath/histable?branch=master
+[coveralls-svg]: https://coveralls.io/repos/github/tusharmath/histable/badge.svg?branch=master
 
 
 A no external dependency module that maintains the history of state changes.
