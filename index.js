@@ -102,4 +102,4 @@ class History {
  * @param {number} limit - Limits the size of the history to avoid memory leaks
  * @returns {History}
  */
-exports.history = limit => new History(limit)
+exports.create = limit => new History(limit)

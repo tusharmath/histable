@@ -3,11 +3,11 @@
  */
 
 'use strict'
-import {history} from './index'
+import {create} from './index'
 import test from 'ava'
 
 test('undo()', t => {
-  const h = history(100)
+  const h = create(100)
   h.push(1)
   h.push(2)
   t.same(h.undo(), 1)
@@ -15,7 +15,7 @@ test('undo()', t => {
 })
 
 test('redo()', t => {
-  const h = history(100)
+  const h = create(100)
 
   t.false(h.canUndo)
   t.false(h.canRedo)
@@ -70,7 +70,7 @@ test('redo()', t => {
 })
 
 test('limit', t => {
-  const h = history(2)
+  const h = create(2)
   h.push(1)
   h.push(2)
   h.push(3)
@@ -80,7 +80,7 @@ test('limit', t => {
 })
 
 test('reset REDO', t => {
-  const h = history(5)
+  const h = create(5)
   h.push(1)
   h.push(2)
   t.same(h.undo(), 1)
@@ -90,7 +90,7 @@ test('reset REDO', t => {
 })
 
 test('distinct pushes', t => {
-  const h = history(5)
+  const h = create(5)
   h.push(1)
   h.push(2)
   h.push(2)

@@ -9,7 +9,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#history">history(limit)</a> ⇒ <code><a href="#History">History</a></code></dt>
+<dt><a href="#create">create(limit)</a> ⇒ <code><a href="#History">History</a></code></dt>
 <dd><p>Creates a new history object</p>
 </dd>
 </dl>
@@ -83,9 +83,9 @@ Moves the state one step backwords if possible
 A logging Util to view whats in the history data structure
 
 **Kind**: instance method of <code>[History](#History)</code>  
-<a name="history"></a>
+<a name="create"></a>
 
-## history(limit) ⇒ <code>[History](#History)</code>
+## create(limit) ⇒ <code>[History](#History)</code>
 Creates a new history object
 
 **Kind**: global function  
