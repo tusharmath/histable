@@ -33,7 +33,7 @@ history.undo() // 1
 history.undo() // undefined
 ```
 
-### [API DOCUMENTATION](DOCUMENTATION.md)
+### [API DOCUMENTATION](DOCS.md)
 
 ---
 Why this name?

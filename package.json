@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ava",
-    "docs": "jsdoc2md --global-index-format none index.js > DOCUMENTATION.md",
+    "docs": "jsdoc2md --global-index-format none index.js > DOCS.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Tushar Mathur <tusharmath@gmail.com>",
