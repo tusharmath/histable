@@ -30,7 +30,8 @@ class History {
   }
 
   /**
-   * Adds the `value` to the history data structure
+   * Adds the `value` to the history data structure.
+   * Addition only happens if the new value is not the same as the last one.
    * @param {external:Immutable} value - the {@link https://facebook.github.io/immutable-js/ Immutable} that needs to be saved
    */
   push (value) {

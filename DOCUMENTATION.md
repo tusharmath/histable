@@ -56,7 +56,8 @@ Determines if redo() is possible or not
 <a name="History+push"></a>
 
 ### history.push(value)
-Adds the `value` to the history data structure
+Adds the `value` to the history data structure.
+Addition only happens if the new value is not the same as the last one.
 
 **Kind**: instance method of <code>[History](#History)</code>  
 
