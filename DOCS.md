@@ -1,7 +1,7 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_Histable">Histable</a></dt>
+<dt><a href="#module_histable">histable</a></dt>
 <dd></dd>
 </dl>
 
@@ -9,9 +9,9 @@
 
 * [Immutable](#external_Immutable)
 
-<a name="module_Histable"></a>
+<a name="module_histable"></a>
 
-## Histable
+## histable
 **Example**  
 ```javascript
 const histable = require('histable')
@@ -24,86 +24,96 @@ history.undo() // 1
 history.undo() // undefined
 ```
 
-* [Histable](#module_Histable)
+* [histable](#module_histable)
     * _static_
-        * [.create(limit)](#module_Histable.create) ⇒ <code>History</code>
+        * [.create([limit])](#module_histable.create) ⇒ <code>History</code>
     * _inner_
-        * [~History](#module_Histable..History)
-            * [.canUndo](#module_Histable..History+canUndo) ⇒ <code>boolean</code>
-            * [.canRedo](#module_Histable..History+canRedo) ⇒ <code>boolean</code>
-            * [.push(...value)](#module_Histable..History+push) ⇒ <code>this</code>
-            * [.redo()](#module_Histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
-            * [.undo()](#module_Histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
-            * [.log()](#module_Histable..History+log)
+        * [~History](#module_histable..History)
+            * [new History([limit])](#new_module_histable..History_new)
+            * [.canUndo](#module_histable..History+canUndo) ⇒ <code>boolean</code>
+            * [.canRedo](#module_histable..History+canRedo) ⇒ <code>boolean</code>
+            * [.push(...value)](#module_histable..History+push) ⇒ <code>this</code>
+            * [.redo()](#module_histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
+            * [.undo()](#module_histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
+            * [.log()](#module_histable..History+log)
 
-<a name="module_Histable.create"></a>
+<a name="module_histable.create"></a>
 
-### Histable.create(limit) ⇒ <code>History</code>
+### histable.create([limit]) ⇒ <code>History</code>
 Creates a new history object
 
-**Kind**: static method of <code>[Histable](#module_Histable)</code>  
+**Kind**: static method of <code>[histable](#module_histable)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| limit | <code>number</code> | Limits the size of the history to avoid memory leaks |
+| [limit] | <code>number</code> | Sets the maximum number of [undo](undo) operations that one can perform. Prevents the system from causing a memory leaks because of keeping an infinitely large history. |
 
-<a name="module_Histable..History"></a>
+<a name="module_histable..History"></a>
 
-### Histable~History
-Creates a new History
+### histable~History
+Creates a new [History](History)
 
-**Kind**: inner class of <code>[Histable](#module_Histable)</code>  
+**Kind**: inner class of <code>[histable](#module_histable)</code>  
 
-* [~History](#module_Histable..History)
-    * [.canUndo](#module_Histable..History+canUndo) ⇒ <code>boolean</code>
-    * [.canRedo](#module_Histable..History+canRedo) ⇒ <code>boolean</code>
-    * [.push(...value)](#module_Histable..History+push) ⇒ <code>this</code>
-    * [.redo()](#module_Histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
-    * [.undo()](#module_Histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
-    * [.log()](#module_Histable..History+log)
+* [~History](#module_histable..History)
+    * [new History([limit])](#new_module_histable..History_new)
+    * [.canUndo](#module_histable..History+canUndo) ⇒ <code>boolean</code>
+    * [.canRedo](#module_histable..History+canRedo) ⇒ <code>boolean</code>
+    * [.push(...value)](#module_histable..History+push) ⇒ <code>this</code>
+    * [.redo()](#module_histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
+    * [.undo()](#module_histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
+    * [.log()](#module_histable..History+log)
 
-<a name="module_Histable..History+canUndo"></a>
+<a name="new_module_histable..History_new"></a>
+
+#### new History([limit])
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [limit] | <code>number</code> | <code>100</code> | Limits the maximum number of [undo](undo) operations. |
+
+<a name="module_histable..History+canUndo"></a>
 
 #### history.canUndo ⇒ <code>boolean</code>
-Determines if undo() is possible or not
+Determines if [undo](undo) is possible or not
 
-**Kind**: instance property of <code>[History](#module_Histable..History)</code>  
-<a name="module_Histable..History+canRedo"></a>
+**Kind**: instance property of <code>[History](#module_histable..History)</code>  
+<a name="module_histable..History+canRedo"></a>
 
 #### history.canRedo ⇒ <code>boolean</code>
-Determines if redo() is possible or not
+Determines if [redo](redo) is possible or not
 
-**Kind**: instance property of <code>[History](#module_Histable..History)</code>  
-<a name="module_Histable..History+push"></a>
+**Kind**: instance property of <code>[History](#module_histable..History)</code>  
+<a name="module_histable..History+push"></a>
 
 #### history.push(...value) ⇒ <code>this</code>
 Adds the `value` to the history data structure.
 Addition only happens if the new value is not the same as the last one.
 
-**Kind**: instance method of <code>[History](#module_Histable..History)</code>  
+**Kind**: instance method of <code>[History](#module_histable..History)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ...value | <code>[Immutable](#external_Immutable)</code> | the [Immutable](https://facebook.github.io/immutable-js/) that needs to be saved. |
+| ...value | <code>[Immutable](#external_Immutable)</code> | the [Immutable](#external_Immutable) that needs to be saved. |
 
-<a name="module_Histable..History+redo"></a>
+<a name="module_histable..History+redo"></a>
 
 #### history.redo() ⇒ <code>[Immutable](#external_Immutable)</code>
 Moves the state one step forward if possible
 
-**Kind**: instance method of <code>[History](#module_Histable..History)</code>  
-<a name="module_Histable..History+undo"></a>
+**Kind**: instance method of <code>[History](#module_histable..History)</code>  
+<a name="module_histable..History+undo"></a>
 
 #### history.undo() ⇒ <code>[Immutable](#external_Immutable)</code>
 Moves the state one step backwords if possible
 
-**Kind**: instance method of <code>[History](#module_Histable..History)</code>  
-<a name="module_Histable..History+log"></a>
+**Kind**: instance method of <code>[History](#module_histable..History)</code>  
+<a name="module_histable..History+log"></a>
 
 #### history.log()
 A logging Util to view whats in the history data structure
 
-**Kind**: instance method of <code>[History](#module_Histable..History)</code>  
+**Kind**: instance method of <code>[History](#module_histable..History)</code>  
 <a name="external_Immutable"></a>
 
 ## Immutable

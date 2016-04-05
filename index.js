@@ -28,26 +28,27 @@
  * history.undo() // 1
  * history.undo() // undefined
  * ```
- * @module Histable
+ * @module histable
  */
 const getLast = list => list[list.length - 1]
 const toArray = (x, i) => Array.prototype.slice.call(x, i)
 
 /**
- * Creates a new History
+ * Creates a new {@link History}
  * @class
+ * @param {number} [limit=100] - Limits the maximum number of {@link undo} operations.
  */
 class History {
   constructor (limit) {
     this.UNDO_HISTORY = []
     this.REDO_HISTORY = []
-    this.limit = limit > 0 ? limit : 0
+    this.limit = limit > 0 ? limit + 1 : 100
   }
 
   /**
    * Adds the `value` to the history data structure.
    * Addition only happens if the new value is not the same as the last one.
-   * @param {...external:Immutable} value - the {@link https://facebook.github.io/immutable-js/ Immutable} that needs to be saved.
+   * @param {...external:Immutable} value - the {@link external:Immutable} that needs to be saved.
    * @returns {this}
    */
   push () {
@@ -92,7 +93,7 @@ class History {
   }
 
   /**
-   * Determines if undo() is possible or not
+   * Determines if {@link undo} is possible or not
    * @returns {boolean}
    */
   get canUndo () {
@@ -100,7 +101,7 @@ class History {
   }
 
   /**
-   * Determines if redo() is possible or not
+   * Determines if {@link redo} is possible or not
    * @returns {boolean}
    */
   get canRedo () {
@@ -119,7 +120,8 @@ class History {
 
 /**
  * Creates a new history object
- * @param {number} limit - Limits the size of the history to avoid memory leaks
+ * @param {number} [limit] - Sets the maximum number of {@link undo} operations that one can perform.
+ * Prevents the system from causing a memory leaks because of keeping an infinitely large history.
  * @returns {History}
  */
 exports.create = limit => new History(limit)
