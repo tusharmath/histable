@@ -32,7 +32,7 @@ history.undo() // undefined
             * [new History([limit])](#new_module_histable..History_new)
             * [.canUndo](#module_histable..History+canUndo) ⇒ <code>boolean</code>
             * [.canRedo](#module_histable..History+canRedo) ⇒ <code>boolean</code>
-            * [.push(...value)](#module_histable..History+push) ⇒ <code>this</code>
+            * [.push(...value)](#module_histable..History+push) ⇒ <code>History</code>
             * [.redo()](#module_histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
             * [.undo()](#module_histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
             * [.log()](#module_histable..History+log)
@@ -59,7 +59,7 @@ Creates a new [History](History)
     * [new History([limit])](#new_module_histable..History_new)
     * [.canUndo](#module_histable..History+canUndo) ⇒ <code>boolean</code>
     * [.canRedo](#module_histable..History+canRedo) ⇒ <code>boolean</code>
-    * [.push(...value)](#module_histable..History+push) ⇒ <code>this</code>
+    * [.push(...value)](#module_histable..History+push) ⇒ <code>History</code>
     * [.redo()](#module_histable..History+redo) ⇒ <code>[Immutable](#external_Immutable)</code>
     * [.undo()](#module_histable..History+undo) ⇒ <code>[Immutable](#external_Immutable)</code>
     * [.log()](#module_histable..History+log)
@@ -86,7 +86,7 @@ Determines if [redo](redo) is possible or not
 **Kind**: instance property of <code>[History](#module_histable..History)</code>  
 <a name="module_histable..History+push"></a>
 
-#### history.push(...value) ⇒ <code>this</code>
+#### history.push(...value) ⇒ <code>History</code>
 Adds the `value` to the history data structure.
 Addition only happens if the new value is not the same as the last one.
 

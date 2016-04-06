@@ -49,7 +49,7 @@ class History {
    * Adds the `value` to the history data structure.
    * Addition only happens if the new value is not the same as the last one.
    * @param {...external:Immutable} value - the {@link external:Immutable} that needs to be saved.
-   * @returns {this}
+   * @returns {History}
    */
   push () {
     const values = toArray(arguments)
