@@ -1,133 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
-    <title>histable - Documentation</title>
-
+    <title>Module: histable</title>
+    
+    
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true}};
+    </script>
+    
+
+    
 </head>
 <body>
-
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
-<label for="nav-trigger" class="navicon-button x">
-  <div class="navicon"></div>
-</label>
-
-<label for="nav-trigger" class="overlay"></label>
-
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module-histable-History.html">History</a><ul class='methods'><li data-type='method'><a href="module-histable-History.html#log">log</a></li><li data-type='method'><a href="module-histable-History.html#push">push</a></li><li data-type='method'><a href="module-histable-History.html#redo">redo</a></li><li data-type='method'><a href="module-histable-History.html#undo">undo</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-histable.html">histable</a><ul class='methods'><li data-type='method'><a href="module-histable.html#.create">create</a></li></ul></li></ul><h3>Externals</h3><ul><li><a href="external-Immutable.html">Immutable</a></li></ul>
-</nav>
-
-<div id="main">
+<div id="wrap" class="clearfix">
     
-    <h1 class="page-title">histable</h1>
-    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html"></a></h3>
 
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
     
-
+        <li class="item" data-name="module:histable~History">
+            <span class="title">
+                <a href="module-histable-History.html">module:histable~History</a>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li data-name="module:histable~History#canRedo"><a href="module-histable-History.html#canRedo">canRedo</a></li>
+            
+                <li data-name="module:histable~History#canUndo"><a href="module-histable-History.html#canUndo">canUndo</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="module:histable~History#log"><a href="module-histable-History.html#log">log</a></li>
+            
+                <li data-name="module:histable~History#push"><a href="module-histable-History.html#push">push</a></li>
+            
+                <li data-name="module:histable~History#redo"><a href="module-histable-History.html#redo">redo</a></li>
+            
+                <li data-name="module:histable~History#undo"><a href="module-histable-History.html#undo">undo</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="module-histable.html">Module: histable</h1>
+        
 
 
 
 <section>
-
+    
 <header>
+    <h2>
+    histable
+    </h2>
     
-        
-    
-</header>
+</header>  
 
 <article>
     <div class="container-overview">
     
+    
+    
         
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+            <h3>Example</h3>
+            
+
+    
+    <pre class="prettyprint"><code>```javascript
+const histable = require('histable')
+const history = histable.create()
+history.push(1)
+history.push(2)
+history.push(3)
+history.undo() // 2
+history.undo() // 1
+history.undo() // undefined
+```</code></pre>
+    
 
         
     
     </div>
-
     
-
     
-
+    
+    
+    
+    
+    
     
         <h3 class="subsection-title">Classes</h3>
-
+        
         <dl>
             <dt><a href="module-histable-History.html">History</a></dt>
             <dd></dd>
         </dl>
     
-
-     
-
     
-
     
-
+    
+    
+    
     
         <h3 class="subsection-title">Methods</h3>
-
         
+        <dl>
             
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id=".create">
+            
+            <span class="type-signature static">static</span>module:histable.create<span class="signature">(<span class="optional">limit</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{History}</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="-_Users_tushar.mathur_Documents_Projects_histable_index.js.html">/Users/tushar.mathur/Documents/Projects/histable/index.js</a>, <a href="-_Users_tushar.mathur_Documents_Projects_histable_index.js.html#line127">line 127</a>
+        </div>
+        
+    </div>
 
     
-
-    <h4 class="name" id=".create"><span class="type-signature">(static) </span>create<span class="signature">(limit<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {History}</span></h4>
-
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Creates a new history object
+    </div>
     
 
-
-
-<div class="description">
-    Creates a new history object
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
     
+    
+    
+    
+    
+        
 
 <table class="params">
     <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
         <tr>
             
                 <td class="name"><code>limit</code></td>
             
-
+            
             <td class="type">
             
                 
@@ -136,129 +226,94 @@
 
             
             </td>
-
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
             
-
             
-
-            <td class="description last">Sets the maximum number of undo operations that one can perform.
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                Sets the maximum number of undo operations that one can perform.
 Prevents the system from causing a memory leaks because of keeping an infinitely large history.</td>
         </tr>
-
-    
-    </tbody>
+	
+	
+	</tbody>
 </table>
-
-
-
-
-
-
+    
+    
+    
 <dl class="details">
-
+    
+        
+    
+    
     
 
     
-
     
-
     
-
     
-
     
-
     
-
     
-
     
-
     
-
     
-
     
-
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line127">line 127</a>
-    </li></ul></dd>
     
-
     
-
-    
-
     
 </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">History</span>
-
-
-    </dd>
-</dl>
-
     
-
-
-
-        
     
 
     
 
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
     
 </article>
 
-</section>
+</section>  
 
 
 
 
+
+        
+
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Apr 09 2016 13:00:02 GMT+0530 (IST)
+        </footer>
+    </div>
 </div>
-
-<br class="clear">
-
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Apr 09 2016 12:47:53 GMT+0530 (IST) using the Minami theme.
-</footer>
-
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
