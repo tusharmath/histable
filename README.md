@@ -1,5 +1,7 @@
 # Histable
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tusharmath/histable.svg)](https://greenkeeper.io/)
+
 [![Build Status][travis-svg]][travis]
 [![npm][npm-svg]][npm]
 [![Coverage Status][coveralls-svg]][coveralls]
